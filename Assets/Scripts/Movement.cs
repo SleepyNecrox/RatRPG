@@ -27,7 +27,14 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        if (canMove)
+        {
+            rb.MovePosition(rb.position + movement * speed * Time.fixedDeltaTime);
+        }
+        else
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 
     private void Flip()
@@ -41,9 +48,15 @@ public class Movement : MonoBehaviour
         }
     }
 
-    public void ToggleMovement(bool canMove)
+     public void ToggleMovement(bool enableMovement)
     {
-        this.canMove = canMove;
+        canMove = enableMovement;
+
+       
+        if (!enableMovement)
+        {
+            rb.velocity = Vector2.zero;
+        }
     }
 }
 

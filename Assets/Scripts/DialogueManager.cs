@@ -6,20 +6,19 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
     public TextMeshProUGUI nameTXT;
     public TextMeshProUGUI nameTXTbg;
     public TextMeshProUGUI dialogueTXT;
-    public Animator animator;
-    public Image NPC_PortraitIMG;
-    public Image DialogueBox;
+    public Image PortraitIMG;
 
+    public Animator animator;
     public Sprite playerPortraitSprite;
 
     private Queue<string> sentences;
     private bool isDialogue = false;
 
     private Movement playerMovement;
+    private Dialogue currentDialogue; 
 
 
     void Start()
@@ -30,6 +29,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue)
     {
+
         animator.SetBool("isOpen", true);
         if(isDialogue)
         {
@@ -37,34 +37,36 @@ public class DialogueManager : MonoBehaviour
         }
 
         isDialogue = true;
-
-        if (dialogue.NPC_Name == "Ronnie")
-        {
-            nameTXT.text = "Ronnie";
-            nameTXTbg.text = "Ronnie";
-            NPC_PortraitIMG.sprite = playerPortraitSprite;
-            FlipUI(false);
-        }
-        else
-        {
-            nameTXT.text = dialogue.NPC_Name;
-            nameTXTbg.text = dialogue.NPC_Name;
-            NPC_PortraitIMG.sprite = dialogue.NPC_Portrait;
-            FlipUI(true);
-        }
+        playerMovement.ToggleMovement(false);
 
         sentences.Clear();
 
-        foreach(string sentence in dialogue.sentences)
+
+        if (dialogue.NPC_Names.Length == dialogue.NPC_Portraits.Length &&
+        dialogue.NPC_Names.Length == dialogue.sentences.Length)
+    {
+        currentDialogue = dialogue;
+
+        for (int i = 0; i < dialogue.sentences.Length; i++)
         {
-        sentences.Enqueue(sentence);
+            sentences.Enqueue(dialogue.sentences[i]);
         }
+
+        DisplayNextSentence();
+    }
+    else
+    {
+        Debug.LogError("Dialogue lengths don't match!");
+        EndDialogue();
+        return;
+    }
+
         playerMovement.ToggleMovement(false);
     }
 
     public void DisplayNextSentence()
     {
-        if(sentences.Count == 0)
+        if (sentences.Count == 0)
         {
             EndDialogue();
             return;
@@ -72,6 +74,20 @@ public class DialogueManager : MonoBehaviour
 
         string sentence = sentences.Dequeue();
         dialogueTXT.text = sentence;
+
+        int currentIndex = currentDialogue.sentences.Length - sentences.Count - 1;
+
+        if (currentIndex >= 0 && currentIndex < currentDialogue.NPC_Names.Length)
+        {
+            nameTXT.text = currentDialogue.NPC_Names[currentIndex];
+            nameTXTbg.text = currentDialogue.NPC_Names[currentIndex];
+            PortraitIMG.sprite = currentDialogue.NPC_Portraits[currentIndex];
+        }
+        else
+        {
+            Debug.LogError("Invalid index during DisplayNextSentence");
+        }
+
         StopAllCoroutines();
         StartCoroutine(TypeSentence(sentence));
     }
@@ -94,17 +110,6 @@ IEnumerator TypeSentence(string sentence)
     playerMovement.ToggleMovement(true);
   }
 
-private void FlipUI(bool isPlayer)
-    {
-        if (isPlayer)
-        {
-            DialogueBox.rectTransform.localScale = new Vector3(1, 1, 1);
-        }
-        else
-        {
-            DialogueBox.rectTransform.localScale = new Vector3(1, 1, 1);
-        }
-    }
 
 void Update()
 {
