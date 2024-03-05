@@ -106,19 +106,19 @@ IEnumerator TypeSentence(string sentence)
 }
 
 
-  public void EndDialogue()
-    {
-        animator.SetBool("isOpen", false);
-        isDialogue = false;
-        playerMovement.ToggleMovement(true);
+ public void EndDialogue()
+{
+    animator.SetBool("isOpen", false);
+    isDialogue = false;
+    playerMovement.ToggleMovement(true);
 
-        // Enable the collider to allow triggering again
-        if (currentDialogueTrigger != null)
-        {
-            currentDialogueTrigger.EnableCollider();
-            currentDialogueTrigger = null;
-        }
+    if (currentDialogueTrigger != null && currentDialogueTrigger.triggerType != DialogueTrigger.TriggerType.EnterCollider)
+    {
+        currentDialogueTrigger.EnableCollider();
+        currentDialogueTrigger = null;
     }
+}
+
 
 void Update()
 {

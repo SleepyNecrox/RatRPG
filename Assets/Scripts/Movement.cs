@@ -13,7 +13,7 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        if (!PauseMenu.isPaused)
+        if (!DialogueManager.isDialogue && !PauseMenu.isPaused)
         {
             if (canMove)
             {

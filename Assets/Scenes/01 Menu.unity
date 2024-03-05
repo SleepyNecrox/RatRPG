@@ -389,13 +389,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c725303b235a39f4cae8b50f0a211373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Key: 122
   playButton: {fileID: 1755474107}
   optionsButton: {fileID: 724875225}
   backButton: {fileID: 0}
   quitButton: {fileID: 1648032724}
-  fadeImage: {fileID: 0}
-  fadeAnimator: {fileID: 0}
+  transition: {fileID: 1924775966}
 --- !u!224 &525321763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -750,6 +748,7 @@ GameObject:
   - component: {fileID: 1291409307}
   - component: {fileID: 1291409306}
   - component: {fileID: 1291409305}
+  - component: {fileID: 1291409308}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -826,6 +825,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291409303}
   m_CullTransparentMesh: 1
+--- !u!95 &1291409308
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1291409303}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1583011830
 GameObject:
   m_ObjectHideFlags: 0
@@ -1164,7 +1184,7 @@ Animator:
   m_GameObject: {fileID: 1924775965}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 851407ed3a441e84b924a78aebfa1644, type: 2}
+  m_Controller: {fileID: 9100000, guid: 66c544fe64ec8354e98f0872eee1d074, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1267,7 +1287,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2034838442}
-  - component: {fileID: 2034838443}
   m_Layer: 0
   m_Name: Transition
   m_TagString: Untagged
@@ -1291,25 +1310,6 @@ Transform:
   - {fileID: 1924775970}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2034838443
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2034838441}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c725303b235a39f4cae8b50f0a211373, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _Key: 122
-  playButton: {fileID: 0}
-  optionsButton: {fileID: 0}
-  backButton: {fileID: 0}
-  quitButton: {fileID: 0}
-  fadeImage: {fileID: 0}
-  fadeAnimator: {fileID: 0}
 --- !u!1 &2054814631
 GameObject:
   m_ObjectHideFlags: 0

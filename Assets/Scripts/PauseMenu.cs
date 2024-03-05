@@ -41,9 +41,9 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(_Key) && !DialogueManager.isDialogue)
         {
-            if (playButton != null && isPaused)
+            if (isPaused)
             { 
-                playButton.onClick.Invoke();
+                ResumeGame();
             }
             else
             {
@@ -70,8 +70,8 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         SceneManager.LoadScene(1);
+        pauseMenu.SetActive(false);
     }
-
 
     public void QuitGame()
     {
