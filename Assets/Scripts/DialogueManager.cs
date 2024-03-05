@@ -15,10 +15,11 @@ public class DialogueManager : MonoBehaviour
     public Sprite playerPortraitSprite;
 
     private Queue<string> sentences;
-    private bool isDialogue = false;
+    public static bool isDialogue = false;
 
     private Movement playerMovement;
     private Dialogue currentDialogue; 
+    private DialogueTrigger currentDialogueTrigger;
 
 
     void Start()
@@ -27,7 +28,7 @@ public class DialogueManager : MonoBehaviour
         playerMovement = FindObjectOfType<Movement>();
     }
 
-    public void StartDialogue (Dialogue dialogue)
+    public void StartDialogue (Dialogue dialogue, DialogueTrigger trigger)
     {
 
         animator.SetBool("isOpen", true);
@@ -38,6 +39,8 @@ public class DialogueManager : MonoBehaviour
 
         isDialogue = true;
         playerMovement.ToggleMovement(false);
+        currentDialogueTrigger = trigger;
+
 
         sentences.Clear();
 
@@ -104,19 +107,29 @@ IEnumerator TypeSentence(string sentence)
 
 
   public void EndDialogue()
-  {
-    animator.SetBool("isOpen", false);
-    isDialogue = false;
-    playerMovement.ToggleMovement(true);
-  }
+    {
+        animator.SetBool("isOpen", false);
+        isDialogue = false;
+        playerMovement.ToggleMovement(true);
 
+        // Enable the collider to allow triggering again
+        if (currentDialogueTrigger != null)
+        {
+            currentDialogueTrigger.EnableCollider();
+            currentDialogueTrigger = null;
+        }
+    }
 
 void Update()
 {
-    if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
+    if(PauseMenu.isPaused == false)
+    {
+ if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
     {
         DisplayNextSentence();
     }
+    }
+   
 }
 
 

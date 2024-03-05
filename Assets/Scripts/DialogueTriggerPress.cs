@@ -6,42 +6,45 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;
 
-    private GameObject canDialogue;
+    private bool isInRange = false;
 
-    public void TriggerDialogue()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
-    }
-
-void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (collision.CompareTag("Player"))
         {
-            if(canDialogue != null)
-            {
-                TriggerDialogue();
-            }
-        }
-    }
-
-private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            canDialogue = collision.gameObject;
+            isInRange = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
-            if(collision.gameObject == canDialogue)
-            {
-                canDialogue = null;
-            }
-            
+            isInRange = false;
         }
     }
 
+    void Update()
+    {
+        if(!PauseMenu.isPaused)
+        {
+            if (isInRange && Input.GetKeyDown(KeyCode.Z))
+            {
+            TriggerDialogue();
+            }
+        }
+      
+    }
+
+    public void TriggerDialogue()
+    {
+        GetComponent<Collider2D>().enabled = false;
+
+        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
+    }
+
+    public void EnableCollider()
+    {
+        GetComponent<Collider2D>().enabled = true;
+    }
 }

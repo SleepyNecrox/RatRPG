@@ -101,7 +101,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     NPC_Names:
-    - EMPTY
     - 
     - 
     - 
@@ -109,12 +108,10 @@ MonoBehaviour:
     - {fileID: 0}
     - {fileID: 0}
     - {fileID: 0}
-    - {fileID: 0}
     sentences:
-    - EMPTY
-    - That gonk really messed up big time...
-    - Stealing all my cyber coins and all, I can't get home anymore
-    - Choom, wouldn't ya help me?
+    - 
+    - 
+    - 
 --- !u!61 &5476176509328523920
 BoxCollider2D:
   m_ObjectHideFlags: 0
