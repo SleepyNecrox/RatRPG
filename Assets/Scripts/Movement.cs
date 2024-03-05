@@ -8,25 +8,26 @@ public class Movement : MonoBehaviour
     [SerializeField] public Rigidbody2D rb;
 
     private bool isFacingRight = true;
-
     private bool canMove = true;
     Vector2 movement;
 
     void Update()
     {
-        if(!PauseMenu.isPaused)
+        if (!PauseMenu.isPaused)
         {
-            if(canMove)
-        {
-        movement.x  = Input.GetAxisRaw("Horizontal");
-        movement.y = Input.GetAxisRaw("Vertical");
+            if (canMove)
+            {
+                movement.x = Input.GetAxisRaw("Horizontal");
+                movement.y = Input.GetAxisRaw("Vertical");
 
-        //if(movement.x != 0) movement.y = 0;
 
-        Flip();
+                //if(movement.x != 0) movement.y = 0;
+                
+                movement.Normalize();
+
+                Flip();
+            }
         }
-        }
-        
     }
 
     void FixedUpdate()
@@ -52,16 +53,13 @@ public class Movement : MonoBehaviour
         }
     }
 
-     public void ToggleMovement(bool enableMovement)
+    public void ToggleMovement(bool enableMovement)
     {
         canMove = enableMovement;
 
-       
         if (!enableMovement)
         {
             rb.velocity = Vector2.zero;
         }
     }
 }
-
-

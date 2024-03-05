@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -12,57 +11,82 @@ public class MainMenu : MonoBehaviour
     public Button backButton;
     public Button quitButton;
 
-    void Start()
+    public Image fadeImage;
+    public Animator fadeAnimator;
+
+    private IEnumerator Start()
     {
+        if (fadeImage != null)
+        {
+            fadeAnimator = fadeImage.GetComponent<Animator>();
+            // Set the alpha value to 0 initially for transparency
+            Color transparentColor = fadeImage.color;
+            transparentColor.a = 0f;
+            fadeImage.color = transparentColor;
+
+            yield return StartCoroutine(FadeIn());
+        }
+
         if (playButton != null)
         {
             playButton.onClick.AddListener(PlayGame);
         }
-
         else if (optionsButton != null)
         {
             optionsButton.onClick.AddListener(OptionsMenu);
         }
-
         else if (backButton != null)
         {
             backButton.onClick.AddListener(StartMenu);
         }
-
         else if (quitButton != null)
         {
             quitButton.onClick.AddListener(QuitGame);
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (Input.GetKeyDown(_Key))
         {
             if (playButton != null)
             {
-                playButton.onClick.Invoke();
+                StartCoroutine(FadeOutAndLoadScene(3));
             }
         }
     }
 
     public void PlayGame()
     {
-        SceneManager.LoadScene(3);
+        StartCoroutine(FadeOutAndLoadScene(3));
     }
 
     public void OptionsMenu()
     {
-        SceneManager.LoadScene(2);
+        StartCoroutine(FadeOutAndLoadScene(2));
     }
 
     public void StartMenu()
     {
-        SceneManager.LoadScene(1);
+        StartCoroutine(FadeOutAndLoadScene(1));
     }
 
     public void QuitGame()
     {
         Application.Quit();
+    }
+
+    private IEnumerator FadeIn()
+    {
+        fadeAnimator.SetTrigger("FadeIn");
+        yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
+    }
+
+    private IEnumerator FadeOutAndLoadScene(int sceneIndex)
+    {
+        fadeAnimator.SetTrigger("FadeOut");
+        yield return new WaitForSeconds(fadeAnimator.GetCurrentAnimatorStateInfo(0).length);
+
+        SceneManager.LoadScene(sceneIndex);
     }
 }

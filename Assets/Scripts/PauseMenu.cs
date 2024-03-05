@@ -10,7 +10,6 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenu;
 
-    public GameObject pauseSettings;
     public Button playButton;
     public Button optionsButton;
     public Button backButton;
@@ -21,7 +20,6 @@ public class PauseMenu : MonoBehaviour
     void Start()
     {
         pauseMenu.SetActive(false);
-        pauseSettings.SetActive(false);
 
         if (playButton != null)
         {
@@ -70,7 +68,8 @@ public class PauseMenu : MonoBehaviour
 
     public void OptionsMenu()
     {
-        //pauseSettings.SetActive(true);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(1);
     }
 
 
