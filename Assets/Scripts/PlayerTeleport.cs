@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerTeleport : MonoBehaviour
 {
     private GameObject currentTeleporter;
-    private float teleportCooldown = 0.5f; 
+    private float teleportCooldown = 1f; 
     private float lastTeleportTime;
 
     void Update()
