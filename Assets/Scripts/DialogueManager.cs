@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue; 
     private DialogueTrigger currentDialogueTrigger;
 
+    
 
     void Start()
     {

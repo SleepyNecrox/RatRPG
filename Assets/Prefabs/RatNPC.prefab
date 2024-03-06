@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6564211853916836790}
   - component: {fileID: 5476176509328523920}
   - component: {fileID: 8126590735085100090}
+  - component: {fileID: 4205162411268195603}
   m_Layer: 0
   m_Name: RatNPC
   m_TagString: NPC
@@ -203,3 +204,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5625, y: 1}
   m_EdgeRadius: 0
+--- !u!95 &4205162411268195603
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7132864606303523208}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6018acfdcff751945b8685201edcd1cf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
