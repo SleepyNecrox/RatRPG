@@ -4,23 +4,30 @@ using UnityEngine;
 
 public class PlayerTeleport : MonoBehaviour
 {
-    
     private GameObject currentTeleporter;
+    private float teleportCooldown = 0.5f; 
+    private float lastTeleportTime;
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && CanTeleport())
         {
-            if(currentTeleporter != null)
+            if (currentTeleporter != null)
             {
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
+                lastTeleportTime = Time.time;
             }
         }
     }
 
+    private bool CanTeleport()
+    {
+        return Time.time - lastTeleportTime >= teleportCooldown;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Teleporter"))
+        if (collision.CompareTag("Teleporter"))
         {
             currentTeleporter = collision.gameObject;
         }
@@ -28,13 +35,12 @@ public class PlayerTeleport : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if(collision.CompareTag("Teleporter"))
+        if (collision.CompareTag("Teleporter"))
         {
-            if(collision.gameObject == currentTeleporter)
+            if (collision.gameObject == currentTeleporter)
             {
                 currentTeleporter = null;
             }
-            
         }
     }
 }

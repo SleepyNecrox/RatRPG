@@ -15,8 +15,6 @@ public class DialogueTrigger : MonoBehaviour
 
     private bool isInRange = false;
 
-    
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
