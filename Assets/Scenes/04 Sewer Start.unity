@@ -790,6 +790,7 @@ GameObject:
   m_Component:
   - component: {fileID: 230175875}
   - component: {fileID: 230175876}
+  - component: {fileID: 230175877}
   m_Layer: 0
   m_Name: SideDialogueManager
   m_TagString: Untagged
@@ -822,6 +823,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e13d38c55245d8409d874449786a9d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterManager: {fileID: 824253574}
+  nameTXT: {fileID: 97960236}
+  nameTXTbg: {fileID: 55572935}
+  dialogueTXT: {fileID: 605421313}
+  PortraitIMG: {fileID: 1402389766}
+  animator: {fileID: 1744040212}
+  playerPortraitSprite: {fileID: 2030494307, guid: e8821a742ea5ca24c9e5f0246098f601, type: 3}
+  questManager: {fileID: 273588460}
+--- !u!114 &230175877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 230175874}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd583ff3e17447b43bac48a0f615a245, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   characterManager: {fileID: 824253574}
@@ -8100,6 +8121,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &617437237
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3640641594905411096, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -67.57498
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7.574
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.2679718
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4970536959686031314, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157085707399279583, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_Size.y
+      value: 0.9528308
+      objectReference: {fileID: 0}
+    - target: {fileID: 5157085707399279583, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.1690557
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604453159837969696, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_Name
+      value: DialogueTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 6604453159837969696, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6604453159837969696, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 617437239}
+  m_SourcePrefab: {fileID: 100100000, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+--- !u!1 &617437238 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6604453159837969696, guid: 80cb2e3c636a6524ea040abf44dfb85c, type: 3}
+  m_PrefabInstance: {fileID: 617437237}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &617437239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 617437238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195a549e763e45447858982be0b67b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 0
+  dialogue:
+    NPC_Names:
+    - Little Ched
+    - Ronnie
+    - Little Ched
+    NPC_Portraits:
+    - {fileID: -1351441007, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    - {fileID: 689631366, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    - {fileID: -1351441007, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    sentences:
+    - Heyyy! You actually found all of them
+    - Yeah... I even had to beat up a cheesehead to get one...
+    - Haha, thanks Ronnie boy
+  characterManager: {fileID: 824253574}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -8212,12 +8341,12 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 230175875}
+  - {fileID: 273588459}
   - {fileID: 717870501}
   - {fileID: 1248693149}
   - {fileID: 2089041641}
   - {fileID: 636271198}
   - {fileID: 85590378}
-  - {fileID: 273588459}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &636271198 stripped
@@ -9953,8 +10082,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 17
-  m_fontSizeBase: 17
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9989,7 +10118,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -5.2441864, y: 0, z: -90.90788, w: -35.666653}
+  m_margin: {x: -1.0909424, y: 0, z: -87.34749, w: -35.666653}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15264,7 +15393,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       propertyPath: m_Size.x
-      value: 0.31367493
+      value: 0.32392883
       objectReference: {fileID: 0}
     - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       propertyPath: m_Size.y
@@ -15272,11 +15401,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       propertyPath: m_Offset.x
-      value: 0.0016174316
+      value: 0.0067443848
       objectReference: {fileID: 0}
     - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       propertyPath: m_Offset.y
       value: 0.006462574
+      objectReference: {fileID: 0}
+    - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8126590735085100090, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
@@ -15334,13 +15467,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6564211853916836790, guid: c51184585ac9a934d976256974ba20e8, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7132864606303523208, guid: c51184585ac9a934d976256974ba20e8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1953829261}
+    - targetCorrespondingSourceObject: {fileID: 7132864606303523208, guid: c51184585ac9a934d976256974ba20e8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1953829262}
   m_SourcePrefab: {fileID: 100100000, guid: c51184585ac9a934d976256974ba20e8, type: 3}
 --- !u!4 &1200259129 stripped
 Transform:
@@ -48487,6 +48624,33 @@ MonoBehaviour:
     - Okay then.
     - Catch ya later Ron
   characterManager: {fileID: 824253574}
+--- !u!114 &1953829262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1475815848}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 195a549e763e45447858982be0b67b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  triggerType: 0
+  dialogue:
+    NPC_Names:
+    - Little Ched
+    - Ronnie
+    - Little Ched
+    NPC_Portraits:
+    - {fileID: -1351441007, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    - {fileID: 689631366, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    - {fileID: -1351441007, guid: 73bfd73bd583d494698ae880dd1d0e91, type: 3}
+    sentences:
+    - Heyyy! You actually found all of them
+    - Yeah... I even had to beat up a cheesehead to get one...
+    - Haha, thanks Ronnie boy
+  characterManager: {fileID: 824253574}
 --- !u!4 &1955743418 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8193218925624426530, guid: c51184585ac9a934d976256974ba20e8, type: 3}
@@ -49575,11 +49739,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 282504993430967660, guid: 6d6121ed3f5222245a5eca4e24841e42, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -71.42
+      value: -45.52
       objectReference: {fileID: 0}
     - target: {fileID: 282504993430967660, guid: 6d6121ed3f5222245a5eca4e24841e42, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -9.98
+      value: -0.99
       objectReference: {fileID: 0}
     - target: {fileID: 282504993430967660, guid: 6d6121ed3f5222245a5eca4e24841e42, type: 3}
       propertyPath: m_LocalPosition.z
@@ -50044,3 +50208,4 @@ SceneRoots:
   - {fileID: 179289707}
   - {fileID: 331760974}
   - {fileID: 1847446869}
+  - {fileID: 617437237}

@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class SideDialogueManager : MonoBehaviour
+public class SideDialogueManager2 : MonoBehaviour
 {
 
     public CharacterManager characterManager;
@@ -34,7 +34,7 @@ public class SideDialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue, SideQuestTrigger trigger)
     {
-        
+        Debug.Log("Dialogue2");
         animator.SetBool("isOpen", true);
         if(isDialogue)
         {
@@ -120,7 +120,7 @@ IEnumerator TypeSentence(string sentence)
     }
     characterManager.isCheeseCollectible = true;
     questManager.SideQuestCollect();
-    questManager.SideQuestShow();
+    questManager.SideQuestHide();
 }
 
 

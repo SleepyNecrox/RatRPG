@@ -43,7 +43,13 @@ public class SideQuestTrigger : MonoBehaviour
         {
             if (!characterManager.isCheeseCollectible && isInRange && Input.GetKeyDown(KeyCode.Z))
             {
+                Debug.Log("Triggering Dialogue 1");
                 TriggerDialogue();
+            }
+            else if (characterManager.isCheeseCollected && isInRange && Input.GetKeyDown(KeyCode.Z))
+            {
+                Debug.Log("Triggering Dialogue 2");
+                TriggerDialogue2();
             }
         }
     }
@@ -52,6 +58,13 @@ public class SideQuestTrigger : MonoBehaviour
     {
         GetComponent<Collider2D>().enabled = false;
         FindObjectOfType<SideDialogueManager>().StartDialogue(dialogue, this);
+        GetComponent<SideQuestTrigger>().enabled = false;
+    }
+
+    public void TriggerDialogue2()
+    {
+        GetComponent<Collider2D>().enabled = false;
+        FindObjectOfType<SideDialogueManager2>().StartDialogue(dialogue, this);
     }
 
     public void EnableCollider()

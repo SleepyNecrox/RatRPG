@@ -19,14 +19,6 @@ public class CollectCheese : MonoBehaviour
     private bool hasCollected = false;
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            
-        }
-    }
-
     private void OnTriggerStay2D(Collider2D collision)
     {
         if(collision.CompareTag("Player"))
@@ -46,13 +38,6 @@ public class CollectCheese : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.CompareTag("Player"))
-        {
-            
-        }
-    }
 
     private void LateUpdate()
     {

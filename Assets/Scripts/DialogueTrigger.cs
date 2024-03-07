@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class DialogueTrigger : MonoBehaviour, IDialogueTrigger
 {
     public enum TriggerType
     {
@@ -12,6 +12,7 @@ public class DialogueTrigger : MonoBehaviour
 
     public TriggerType triggerType = TriggerType.PressZ;
     public Dialogue dialogue;
+
 
     private bool isInRange = false;
 

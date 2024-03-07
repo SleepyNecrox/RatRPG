@@ -18,9 +18,9 @@ public class DialogueManager : MonoBehaviour
     public static bool isDialogue = false;
 
     private Movement playerMovement;
-    private Dialogue currentDialogue;   
-
+    private Dialogue currentDialogue; 
     private DialogueTrigger currentDialogueTrigger;
+
 
     void Start()
     {
@@ -126,7 +126,6 @@ void Update()
     }
    
 }
-
 
 
 }
