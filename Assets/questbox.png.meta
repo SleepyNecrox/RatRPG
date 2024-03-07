@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 25cc52c7ac309544287cb85881f055bd
+guid: 9c99d2f8701d7aa46a843e588f38b430
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,13 +110,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: menu2_0
+      name: questbox_0
       rect:
         serializedVersion: 2
-        x: 665
-        y: 579
-        width: 357
-        height: 95
+        x: 1585
+        y: 884
+        width: 310
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8ea9a6aff3dae74aa1cc28484c1a497
-      internalID: -213453153
+      spriteID: 013b347144d57e1429b261b5abf8345b
+      internalID: -1349461596
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: menu2_1
+      name: questbox_1
       rect:
         serializedVersion: 2
-        x: 1091
-        y: 580
-        width: 357
-        height: 94
+        x: 1585
+        y: 701
+        width: 310
+        height: 162
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -145,92 +145,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ccdd2980b9076046b46d2dd11ea656d
-      internalID: -362721954
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu2_2
-      rect:
-        serializedVersion: 2
-        x: 665
-        y: 464
-        width: 360
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f7932f0c215af054986c7e9c986a4360
-      internalID: 441509789
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu2_3
-      rect:
-        serializedVersion: 2
-        x: 1091
-        y: 465
-        width: 360
-        height: 97
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 623a8d9a265706143aa3e29ccfad3fb1
-      internalID: 1639078351
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu2_4
-      rect:
-        serializedVersion: 2
-        x: 665
-        y: 343
-        width: 360
-        height: 99
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 7f8f661fb2a48f74c837d60e0e108178
-      internalID: 1642072284
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: menu2_5
-      rect:
-        serializedVersion: 2
-        x: 1091
-        y: 343
-        width: 360
-        height: 100
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6dd5aaf45335b064d8cea7364fd939f7
-      internalID: 916144270
+      spriteID: edbecef056bea214d870b5185d972ad0
+      internalID: 1506071447
       vertices: []
       indices: 
       edges: []
@@ -246,12 +162,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      menu2_0: -213453153
-      menu2_1: -362721954
-      menu2_2: 441509789
-      menu2_3: 1639078351
-      menu2_4: 1642072284
-      menu2_5: 916144270
+      questbox_0: -1349461596
+      questbox_1: 1506071447
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

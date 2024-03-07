@@ -252,11 +252,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c725303b235a39f4cae8b50f0a211373, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _Key: 120
   playButton: {fileID: 2141292454}
   optionsButton: {fileID: 1289648810}
   backButton: {fileID: 0}
   quitButton: {fileID: 520634327}
+  transition: {fileID: 0}
 --- !u!1 &520634325
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,9 +324,9 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 1602831765, guid: 464f0de11d9f7e045b8d35a8a8d40bf4, type: 3}
+    m_HighlightedSprite: {fileID: 1696409770, guid: b8325dce2de6d24499165ff07b54b276, type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 1602831765, guid: 464f0de11d9f7e045b8d35a8a8d40bf4, type: 3}
+    m_SelectedSprite: {fileID: 1696409770, guid: b8325dce2de6d24499165ff07b54b276, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -371,7 +371,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1704983418, guid: 464f0de11d9f7e045b8d35a8a8d40bf4, type: 3}
+  m_Sprite: {fileID: -2054787414, guid: b8325dce2de6d24499165ff07b54b276, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -459,7 +459,7 @@ Transform:
   m_GameObject: {fileID: 960334678}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -115.56, y: 280.79996, z: -9719.999}
+  m_LocalPosition: {x: 0, y: 0, z: -9719.999}
   m_LocalScale: {x: 108, y: 108, z: 108}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -506,12 +506,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 172001870, guid: 5175b58c6c8575a488e6df800645ac88, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 3518a3a604200154a9bf5d6317143388, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 14.11, y: 2.01}
+  m_Size: {x: 19.2, y: 10.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

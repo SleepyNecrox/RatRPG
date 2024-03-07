@@ -4,8 +4,10 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-public class DialogueManager : MonoBehaviour
+public class SideDialogueManager : MonoBehaviour
 {
+
+    public CharacterManager characterManager;
     public TextMeshProUGUI nameTXT;
     public TextMeshProUGUI nameTXTbg;
     public TextMeshProUGUI dialogueTXT;
@@ -20,7 +22,9 @@ public class DialogueManager : MonoBehaviour
     private Movement playerMovement;
     private Dialogue currentDialogue;   
 
-    private DialogueTrigger currentDialogueTrigger;
+    private SideQuestTrigger currentDialogueTrigger;
+    public QuestManager questManager;
+
 
     void Start()
     {
@@ -28,7 +32,7 @@ public class DialogueManager : MonoBehaviour
         playerMovement = FindObjectOfType<Movement>();
     }
 
-    public void StartDialogue (Dialogue dialogue, DialogueTrigger trigger)
+    public void StartDialogue (Dialogue dialogue, SideQuestTrigger trigger)
     {
 
         animator.SetBool("isOpen", true);
@@ -107,11 +111,14 @@ IEnumerator TypeSentence(string sentence)
     isDialogue = false;
     playerMovement.ToggleMovement(true);
 
-    if (currentDialogueTrigger != null && currentDialogueTrigger.triggerType != DialogueTrigger.TriggerType.EnterCollider)
+    if (currentDialogueTrigger != null && currentDialogueTrigger.triggerType != SideQuestTrigger.TriggerType.EnterCollider)
     {
         currentDialogueTrigger.EnableCollider();
         currentDialogueTrigger = null;
     }
+    characterManager.isCheeseCollectible = true;
+    questManager.SideQuestCollect();
+    questManager.SideQuestShow();
 }
 
 
