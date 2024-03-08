@@ -18,39 +18,47 @@ public class SideQuestTrigger : MonoBehaviour
     
 
     private void OnTriggerEnter2D(Collider2D collision)
+{
+     if (collision.CompareTag("Player"))
     {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = true;
-            if (triggerType == TriggerType.EnterCollider)
-            {
-                TriggerDialogue();
-            }
-        }
-    }
+        isInRange = true;
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Player"))
+        if (triggerType == TriggerType.EnterCollider)
         {
-            isInRange = false;
+            TriggerDialogue();
         }
     }
+}
+
+private void OnTriggerExit2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
+    {
+        isInRange = false;
+    }
+}
+
 
     void Update()
     {
         if (!PauseMenu.isPaused && triggerType == TriggerType.PressZ)
         {
+
             if (!characterManager.isCheeseCollectible && isInRange && Input.GetKeyDown(KeyCode.Z))
             {
                 Debug.Log("Triggering Dialogue 1");
                 TriggerDialogue();
             }
-            else if (characterManager.isCheeseCollected && isInRange && Input.GetKeyDown(KeyCode.Z))
+            if (characterManager.isCheeseCollected && isInRange && Input.GetKeyDown(KeyCode.Z))
             {
                 Debug.Log("Triggering Dialogue 2");
                 TriggerDialogue2();
             }
+            // if (characterManager.isCheeseCollectible && isInRange && Input.GetKeyDown(KeyCode.Z))
+            // {
+            //     Debug.Log("3");
+            //     TriggerDialogue3();
+            // }
         }
     }
 
@@ -66,6 +74,12 @@ public class SideQuestTrigger : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
         FindObjectOfType<SideDialogueManager2>().StartDialogue(dialogue, this);
     }
+
+    // public void TriggerDialogue3()
+    // {
+    //     GetComponent<Collider2D>().enabled = false;
+    //     FindObjectOfType<SideDialogueManager3>().StartDialogue(dialogue, this);
+    // }
 
     public void EnableCollider()
     {

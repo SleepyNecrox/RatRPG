@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueTrigger : MonoBehaviour
+public class SideQuestTrigger2 : MonoBehaviour
 {
     public enum TriggerType
     {
@@ -12,45 +12,43 @@ public class DialogueTrigger : MonoBehaviour
 
     public TriggerType triggerType = TriggerType.PressZ;
     public Dialogue dialogue;
-
+    public CharacterManager characterManager;
 
     private bool isInRange = false;
+    
 
     private void OnTriggerEnter2D(Collider2D collision)
+{
+     if (collision.CompareTag("Player"))
     {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = true;
-            if (triggerType == TriggerType.EnterCollider)
-            {
-                TriggerDialogue();
-            }
-        }
+        isInRange = true;
     }
+}
 
-    private void OnTriggerExit2D(Collider2D collision)
+private void OnTriggerExit2D(Collider2D collision)
+{
+    if (collision.CompareTag("Player"))
     {
-        if (collision.CompareTag("Player"))
-        {
-            isInRange = false;
-        }
+        isInRange = false;
     }
+}
+
 
     void Update()
     {
         if (!PauseMenu.isPaused && triggerType == TriggerType.PressZ)
         {
-            if (isInRange && Input.GetKeyDown(KeyCode.Z))
+            if (characterManager.isCheeseCollectible && isInRange && Input.GetKeyDown(KeyCode.Z))
             {
-                TriggerDialogue();
+                Debug.Log("3");
+                TriggerDialogue3();
             }
         }
     }
-
-    public void TriggerDialogue()
+    public void TriggerDialogue3()
     {
         GetComponent<Collider2D>().enabled = false;
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue, this);
+        FindObjectOfType<SideDialogueManager3>().StartDialogue(dialogue, this);
     }
 
     public void EnableCollider()

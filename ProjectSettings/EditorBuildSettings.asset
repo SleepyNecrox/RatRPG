@@ -15,9 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/02 Settings Menu.unity
     guid: 0b4a70b7ff4c3cd4c8ed35e8561ba02c
   - enabled: 1
-    path: Assets/Scenes/03 Ronnies House.unity
-    guid: b066a14a22e3df14eb569e4df514c0d0
-  - enabled: 1
-    path: Assets/Scenes/04 Sewer Start.unity
+    path: Assets/Scenes/03 Sewer Start.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/04 Ronnies House.unity
+    guid: b066a14a22e3df14eb569e4df514c0d0
   m_configObjects: {}
