@@ -96,7 +96,7 @@ IEnumerator TypeSentence(string sentence)
     foreach (char letter in sentence.ToCharArray())
     {
         dialogueTXT.text += letter;
-        yield return new WaitForSeconds(0.03f);
+        yield return new WaitForSeconds(0.02f);
     }
 }
 

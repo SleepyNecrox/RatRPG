@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SideDialogueManager3 : MonoBehaviour
 {
@@ -109,7 +110,7 @@ IEnumerator TypeSentence(string sentence)
 
  public void EndDialogue()
 {
-    Debug.Log("Dialgoue3 END");
+    //Debug.Log("Dialgoue3 END");
     animator.SetBool("isOpen", false);
     isDialogue = false;
     playerMovement.ToggleMovement(true);
@@ -122,6 +123,7 @@ IEnumerator TypeSentence(string sentence)
     characterManager.isCheeseCollectible = true;
     questManager.SideQuestCollect();
     questManager.SideQuestShow();
+    SceneManager.LoadScene(4);
 }
 
 
