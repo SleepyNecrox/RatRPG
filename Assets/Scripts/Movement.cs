@@ -9,6 +9,7 @@ public class Movement : MonoBehaviour
 
     private bool isFacingRight = true;
     private bool canMove = true;
+
     Vector2 movement;
 
     void Update()

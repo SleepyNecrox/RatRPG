@@ -8,8 +8,15 @@ public class CharacterManager : MonoBehaviour
    public bool isCheeseCollected;
    public bool isAlleyUnlocked;
 
+   public bool isHideoutFound;
+
+   public bool isHideoutUnlocked;
+
+   public static bool isNPCDefeated;
+
    public void Update()
    {
         
    }
+
 }

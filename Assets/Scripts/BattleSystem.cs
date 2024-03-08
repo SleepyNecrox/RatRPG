@@ -36,7 +36,6 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD enemyHUD;
 
 
-
     public BattleState state;
 
     void Start()
@@ -111,8 +110,8 @@ public class BattleSystem : MonoBehaviour
 void PlayerGuard()
 {
 
-    int blockedDamage = Mathf.CeilToInt(enemyUnit.damage * 1.0f);
-    int dealtDamage = Mathf.CeilToInt(playerUnit.damage * 0.25f);
+    int blockedDamage = Mathf.CeilToInt(enemyUnit.damage * 0f);
+    int dealtDamage = Mathf.CeilToInt(playerUnit.damage * 0.3f);
 
     enemyUnit.TakeDamage(dealtDamage);
     enemyHUD.SetHP(enemyUnit.currentHP);
@@ -134,21 +133,24 @@ void PlayerGuard()
 }
 
     void EndBattle()
+{
+    if (state == BattleState.WON || state == BattleState.LOST)
     {
-        if(state == BattleState.WON)
+        StartCoroutine(WaitThreeSeconds());
+        FindObjectOfType<PlayerController>()?.LoadPlayerPosition();
+
+        if (state == BattleState.WON)
         {
             SystemTXT.text = "VICTORY!";
-            StartCoroutine(WaitThreeSeconds());
-            SceneManager.LoadScene(3);
-
+            StartCoroutine(LoadNextScene(3));
         }
         else if (state == BattleState.LOST)
         {
             SystemTXT.text = "DEFEAT!";
-            StartCoroutine(WaitThreeSeconds());
-            SceneManager.LoadScene(3);
+            StartCoroutine(LoadNextScene(3));
         }
     }
+}
 
     IEnumerator EnemyTurn() 
     {
@@ -209,4 +211,10 @@ void PlayerGuard()
     {
         yield return new WaitForSeconds(3f);
     }
+
+    IEnumerator LoadNextScene(int sceneIndex)
+{
+    yield return new WaitForSeconds(2f);
+    SceneManager.LoadScene(sceneIndex);
+}
 }

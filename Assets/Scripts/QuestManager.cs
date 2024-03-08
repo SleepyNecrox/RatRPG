@@ -44,6 +44,16 @@ public class QuestManager : MonoBehaviour
         MainQuestTXT.text = "Locate the Queso Hideout in the Alleyway";
     }
 
+    public void MainQuestReturn()
+    {
+        MainQuestTXT.text = "Return to Big Caesar and report to him";
+    }
+
+    public void MainQuestRaid()
+    {
+        MainQuestTXT.text = "Raid the Hideout and KILL El Ratone";
+    }
+
 
     public void SideQuestCollect()
     {

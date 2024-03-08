@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
-public class SideDialogueManager3 : MonoBehaviour
+public class MainDialogueManager3 : MonoBehaviour
 {
 
     public CharacterManager characterManager;
@@ -23,11 +22,8 @@ public class SideDialogueManager3 : MonoBehaviour
     private Movement playerMovement;
     private Dialogue currentDialogue;   
 
-    private SideQuestTrigger2 currentDialogueTrigger;
+    private MainDialogueTrigger1 currentDialogueTrigger;
     public QuestManager questManager;
-
-    public PlayerController playerController;
-    
 
 
     void Start()
@@ -36,9 +32,9 @@ public class SideDialogueManager3 : MonoBehaviour
         playerMovement = FindObjectOfType<Movement>();
     }
 
-    public void StartDialogue (Dialogue dialogue, SideQuestTrigger2 trigger)
+    public void StartDialogue (Dialogue dialogue, MainDialogueTrigger1 trigger)
     {
-        Debug.Log("Dialgoue3");
+        
         animator.SetBool("isOpen", true);
         if(isDialogue)
         {
@@ -113,22 +109,18 @@ IEnumerator TypeSentence(string sentence)
 
  public void EndDialogue()
 {
-    playerController.SavePlayerPosition();
-
-    //Debug.Log("Dialgoue3 END");
     animator.SetBool("isOpen", false);
     isDialogue = false;
     playerMovement.ToggleMovement(true);
 
-    if (currentDialogueTrigger != null && currentDialogueTrigger.triggerType != SideQuestTrigger2.TriggerType.EnterCollider)
+    if (currentDialogueTrigger != null && currentDialogueTrigger.triggerType != MainDialogueTrigger1.TriggerType.EnterCollider)
     {
         currentDialogueTrigger.EnableCollider();
         currentDialogueTrigger = null;
     }
-    characterManager.isCheeseCollectible = true;
-    questManager.SideQuestCollect();
-    questManager.SideQuestShow();
-    StartCoroutine(LoadNextScene(4));
+    questManager.MainQuestReturn();
+    questManager.MainQuestShow();
+    characterManager.isHideoutFound = true;
 }
 
 
@@ -142,12 +134,6 @@ void Update()
     }
     }
    
-}
-
- IEnumerator LoadNextScene(int sceneIndex)
-{
-    yield return new WaitForSeconds(1f);
-    SceneManager.LoadScene(sceneIndex);
 }
 
 
