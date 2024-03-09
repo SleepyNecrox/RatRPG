@@ -29,6 +29,7 @@ public class Movement : MonoBehaviour
                 Flip();
             }
         }
+        ManageGame.Instance.UpdatePlayerData(transform.position);
     }
 
     void FixedUpdate()

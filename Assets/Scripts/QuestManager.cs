@@ -14,6 +14,8 @@ public class QuestManager : MonoBehaviour
     public TextMeshProUGUI MainQuestTXT;
     public TextMeshProUGUI SideQuestTXT;
 
+    public bool isSideQuestActive;
+
     public int cheese = 0;
 
     void Start()

@@ -136,19 +136,20 @@ void PlayerGuard()
 {
     if (state == BattleState.WON || state == BattleState.LOST)
     {
-        StartCoroutine(WaitThreeSeconds());
-        FindObjectOfType<PlayerController>()?.LoadPlayerPosition();
 
         if (state == BattleState.WON)
         {
             SystemTXT.text = "VICTORY!";
+            //ManageGame.Instance.LoadGame();
             StartCoroutine(LoadNextScene(3));
         }
         else if (state == BattleState.LOST)
         {
             SystemTXT.text = "DEFEAT!";
+            //ManageGame.Instance.LoadGame();
             StartCoroutine(LoadNextScene(3));
         }
+        
     }
 }
 

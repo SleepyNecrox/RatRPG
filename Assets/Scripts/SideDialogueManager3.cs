@@ -113,7 +113,7 @@ IEnumerator TypeSentence(string sentence)
 
  public void EndDialogue()
 {
-    playerController.SavePlayerPosition();
+    ManageGame.Instance.SaveGame();
 
     //Debug.Log("Dialgoue3 END");
     animator.SetBool("isOpen", false);
