@@ -8,11 +8,12 @@ TagManager:
   - NPC
   - Door
   - Combat
+  - DangerZone
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Danger
   - Water
   - UI
   - 

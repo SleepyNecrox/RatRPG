@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -10,10 +11,16 @@ public class Movement : MonoBehaviour
     private bool isFacingRight = true;
     private bool canMove = true;
 
+    public float chanceForBattle = 0.1f;
+    public LayerMask dangerZoneLayer; 
+
+    private bool isInDangerZone = false;
+
     Vector2 movement;
 
     void Update()
     {
+        //Debug.Log("isInDangerZone: " + isInDangerZone);
         if (!DialogueManager.isDialogue && !PauseMenu.isPaused)
         {
             if (canMove)
@@ -28,6 +35,11 @@ public class Movement : MonoBehaviour
 
                 Flip();
             }
+            if (isInDangerZone && Random.value < chanceForBattle)
+            {
+            StartRandomBattle();
+            }
+            
         }
         ManageGame.Instance.UpdatePlayerData(transform.position);
     }
@@ -41,6 +53,24 @@ public class Movement : MonoBehaviour
         else
         {
             rb.velocity = Vector2.zero;
+        }
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("DangerZone"))
+        {
+            isInDangerZone = true;
+            Debug.Log("Entered DangerZone");
+        }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("DangerZone"))
+        {
+            isInDangerZone = false;
+            Debug.Log("Exited DangerZone");
         }
     }
 
@@ -63,5 +93,10 @@ public class Movement : MonoBehaviour
         {
             rb.velocity = Vector2.zero;
         }
+    }
+
+    void StartRandomBattle()
+    {
+        SceneManager.LoadScene(4);
     }
 }
