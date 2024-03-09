@@ -13,8 +13,16 @@ public class MainMenu : MonoBehaviour
 
     [SerializeField] Animator transition;
 
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Start()
     {
+
         if (playButton != null)
         {
             playButton.onClick.AddListener(PlayGame);
@@ -39,22 +47,30 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
+        StartCoroutine(WaitOneSecond());
+        audioManager.PlaySFX(audioManager.Button);
         StartCoroutine(TransitionLevel());
         SceneManager.LoadScene(3);
     }
 
     public void OptionsMenu()
     {
+        StartCoroutine(WaitOneSecond());
+        audioManager.PlaySFX(audioManager.Button);
         SceneManager.LoadScene(2);
     }
 
     public void StartMenu()
     {
+        StartCoroutine(WaitOneSecond());
+        audioManager.PlaySFX(audioManager.Button);
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
+        StartCoroutine(WaitOneSecond());
+        audioManager.PlaySFX(audioManager.Button);
         Application.Quit();
     }
 
@@ -63,4 +79,11 @@ public class MainMenu : MonoBehaviour
         transition.SetTrigger("End");
         yield return new WaitForSeconds(2);
     }
+
+     IEnumerator WaitOneSecond()
+    {
+        yield return new WaitForSeconds(1);
+    }
+
+
 }

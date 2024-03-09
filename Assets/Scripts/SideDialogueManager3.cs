@@ -27,6 +27,13 @@ public class SideDialogueManager3 : MonoBehaviour
     public QuestManager questManager;
 
     public PlayerController playerController;
+
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
     
 
 
@@ -103,11 +110,13 @@ public class SideDialogueManager3 : MonoBehaviour
 IEnumerator TypeSentence(string sentence)
 {
     dialogueTXT.text = "";
+    audioManager.PlaySFX(audioManager.Dialogue);
     foreach (char letter in sentence.ToCharArray())
     {
         dialogueTXT.text += letter;
         yield return new WaitForSeconds(0.03f);
     }
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -128,7 +137,9 @@ IEnumerator TypeSentence(string sentence)
     characterManager.isCheeseCollectible = true;
     questManager.SideQuestCollect();
     questManager.SideQuestShow();
+    audioManager.StopDialogueSFX();
     StartCoroutine(LoadNextScene(4));
+    
 }
 
 
@@ -138,6 +149,7 @@ void Update()
     {
  if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
     {
+        audioManager.StopDialogueSFX();
         DisplayNextSentence();
     }
     }

@@ -8,12 +8,20 @@ public class PlayerTeleport : MonoBehaviour
     private float teleportCooldown = 1f; 
     private float lastTeleportTime;
 
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z) && CanTeleport())
         {
             if (currentTeleporter != null)
             {
+                audioManager.PlaySFX(audioManager.Door);
                 transform.position = currentTeleporter.GetComponent<Teleporter>().GetDestination().position;
                 lastTeleportTime = Time.time;
             }

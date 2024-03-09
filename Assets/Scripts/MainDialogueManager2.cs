@@ -25,6 +25,13 @@ public class MainDialogueManager2 : MonoBehaviour
     private MainDialogueTrigger currentDialogueTrigger;
     public QuestManager questManager;
 
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     void Start()
     {
@@ -104,6 +111,7 @@ IEnumerator TypeSentence(string sentence)
         dialogueTXT.text += letter;
         yield return new WaitForSeconds(0.03f);
     }
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -121,6 +129,7 @@ IEnumerator TypeSentence(string sentence)
     questManager.MainQuestRaid();
     questManager.MainQuestShow();
     characterManager.isHideoutUnlocked = true;
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -130,6 +139,7 @@ void Update()
     {
  if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
     {
+        audioManager.StopDialogueSFX();
         DisplayNextSentence();
     }
     }

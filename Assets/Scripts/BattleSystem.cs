@@ -35,8 +35,15 @@ public class BattleSystem : MonoBehaviour
     public BattleHUD playerHUD;
     public BattleHUD enemyHUD;
 
-
     public BattleState state;
+
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     void Start()
     {
@@ -46,6 +53,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator SetupBattle()
     {
+        audioManager.PlaySFX(audioManager.Round1);
         GameObject PlayerGO = Instantiate(playerPrefab, PlayerLocation);
         playerUnit = PlayerGO.GetComponent<Data>();
 
@@ -65,6 +73,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerAttack()
     {
+        audioManager.PlaySFX(audioManager.Punch);
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
 
         if(isDead)
@@ -87,6 +96,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator PlayerShoot()
 {
+    audioManager.PlaySFX(audioManager.Shoot);
     for (int i = 0; i < 3; i++)
     {
         bool isDead = enemyUnit.TakeDamage(playerUnit.DoTdamage);
@@ -109,7 +119,7 @@ public class BattleSystem : MonoBehaviour
 
 void PlayerGuard()
 {
-
+    audioManager.PlaySFX(audioManager.Guard);
     int blockedDamage = Mathf.CeilToInt(enemyUnit.damage * 0f);
     int dealtDamage = Mathf.CeilToInt(playerUnit.damage * 0.3f);
 
@@ -158,7 +168,7 @@ void PlayerGuard()
         SystemTXT.text = enemyUnit.unitName + "'s Turn!";
         yield return new WaitForSeconds(2f);
         bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
-
+        audioManager.PlaySFX(audioManager.MetalPipe);
         playerHUD.SetHP(playerUnit.currentHP);
 
         if(isDead)
@@ -177,6 +187,8 @@ void PlayerGuard()
     {
         SystemTXT.text = "Players Turn!";
     }
+
+
 
     public void OnAttack()
     {

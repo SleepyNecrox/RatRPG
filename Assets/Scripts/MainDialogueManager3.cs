@@ -25,6 +25,13 @@ public class MainDialogueManager3 : MonoBehaviour
     private MainDialogueTrigger1 currentDialogueTrigger;
     public QuestManager questManager;
 
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
+
 
     void Start()
     {
@@ -99,11 +106,13 @@ public class MainDialogueManager3 : MonoBehaviour
 IEnumerator TypeSentence(string sentence)
 {
     dialogueTXT.text = "";
+    audioManager.PlaySFX(audioManager.Dialogue);
     foreach (char letter in sentence.ToCharArray())
     {
         dialogueTXT.text += letter;
         yield return new WaitForSeconds(0.03f);
     }
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -121,6 +130,7 @@ IEnumerator TypeSentence(string sentence)
     questManager.MainQuestReturn();
     questManager.MainQuestShow();
     characterManager.isHideoutFound = true;
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -130,7 +140,9 @@ void Update()
     {
  if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
     {
+        audioManager.StopDialogueSFX();
         DisplayNextSentence();
+        
     }
     }
    

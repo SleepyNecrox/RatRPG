@@ -9,6 +9,7 @@ TagManager:
   - Door
   - Combat
   - DangerZone
+  - Audio
   layers:
   - Default
   - TransparentFX

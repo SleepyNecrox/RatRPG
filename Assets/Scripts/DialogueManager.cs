@@ -21,6 +21,12 @@ public class DialogueManager : MonoBehaviour
     private Dialogue currentDialogue; 
     private DialogueTrigger currentDialogueTrigger;
 
+    AudioManager audioManager;
+
+    void Awake()
+    {
+        audioManager = GameObject.FindGameObjectWithTag("Audio").GetComponent<AudioManager>();
+    }
 
     void Start()
     {
@@ -30,7 +36,6 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue (Dialogue dialogue, DialogueTrigger trigger)
     {
-
         animator.SetBool("isOpen", true);
         if(isDialogue)
         {
@@ -68,6 +73,8 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextSentence()
     {
+
+
         if (sentences.Count == 0)
         {
             EndDialogue();
@@ -93,11 +100,13 @@ public class DialogueManager : MonoBehaviour
 IEnumerator TypeSentence(string sentence)
 {
     dialogueTXT.text = "";
+    audioManager.PlaySFX(audioManager.Dialogue);
     foreach (char letter in sentence.ToCharArray())
     {
         dialogueTXT.text += letter;
         yield return new WaitForSeconds(0.02f);
     }
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -112,6 +121,7 @@ IEnumerator TypeSentence(string sentence)
         currentDialogueTrigger.EnableCollider();
         currentDialogueTrigger = null;
     }
+    audioManager.StopDialogueSFX();
 }
 
 
@@ -121,6 +131,7 @@ void Update()
     {
  if (Input.GetKeyDown(KeyCode.Z) && isDialogue)
     {
+        audioManager.StopDialogueSFX();
         DisplayNextSentence();
     }
     }
